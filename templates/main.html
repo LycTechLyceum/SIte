@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LycTech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+</head>
+<body>
+    <div class="root">
+        <div class="header">
+            <a class="logo" href="/"><img src="static/images/logo.jpg"></a>
+            <a class="LS" href="{{ url_for('main_pages.login') }}">Вход</a>
+            <a class="LS" href="{{ url_for('main_pages.signup') }}">Регистрация</a>
+        </div>
+        <div class="main">
+            <div class="left-side">
+                <p class="main-text">LycTech - организация для поддержки соцпроектов лицея</p>
+                <p class="not-main-text">Мы готовы помочь вам с созданием ботов и сайтов для нужд ваших проектов!</p>
+                <form action="{{ url_for('main_pages.login') }}">
+                    <button class="body_btn">Вход</button>
+                </form>
+            </div>
+
+            <div class="right-side">
+                 <div class="circle-big"></div>
+                 <div class="circle-min"></div>
+            </div>
+
+        </div>
+        <p class="main-text" style="margin-left: auto; margin-right: auto; margin-top: 5rem; text-align: center; font-size: 35px;">Что вы можете у нас заказать</p>
+        <div class="practicum" style="max-width: 70rem; width: 80%;">
+            <p class="center-text" style="font-size: 30px;">Сайты</p>
+            <p class="main-center-text">Сайт нужен всем, на нем может размещаться информация о вашем проекте,
+            новости сообщества и многое другое!</p>
+        </div>
+        <div class="practicum" style="max-width: 70rem; width: 80%;">
+            <p class="center-text" style="font-size: 30px;">Телеграм боты</p>
+            <p class="main-center-text">Телеграм боты могут помочь с оповещением участников проекта о новых ивентах!</p>
+        </div>
+        <div class="practicum" style="max-width: 70rem; width: 80%;">
+            <p class="center-text" style="font-size: 30px;">Дискорд боты</p>
+            <p class="main-center-text">Дискорд боты могут облегчить использование дискорд серверов и сделать его еще интереснее!</p>
+        </div>
+        <hr class="under-main">
+        <div class="contacts">
+            <p>Телеграм: TimofeiSmirnov1</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LycTech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="root">
+        <div class="header">
+            <a class="logo" href="/"><img src="static/images/logo.jpg"></a>
+            <a class="LS" href="{{ url_for('admin.admin_main_page') }}">Вы админ, поздравляю...</a>
+        </div>
+
+        <form action="{{ url_for('admin.all_organizations') }}">
+            <button class="body_btn" style="margin-left: 15rem;">Все организации</button>
+        </form>
+
+        <form action="{{ url_for('admin.all_projects') }}">
+            <button class="body_btn" style="margin-left: 15rem;">Все проекты</button>
+        </form>
+
+        <form action="{{ url_for('admin.all_users') }}">
+            <button class="body_btn" style="margin-left: 15rem;">Все пользователи</button>
+        </form>
+
+        <form action="{{ url_for('admin.all_pos') }}">
+            <button class="body_btn" style="margin-left: 15rem;">Все позиции</button>
+        </form>
+
+        <form action="{{ url_for('admin.all_practices') }}">
+            <button class="body_btn" style="margin-left: 15rem;">Все практикумы</button>
+        </form>
+
+        <form action="{{ url_for('admin.all_programmers') }}">
+            <button class="body_btn" style="margin-left: 15rem;">Все программисты</button>
+        </form>
+
+        <form action="{{ url_for('admin.all_visitors') }}">
+            <button class="body_btn" style="margin-left: 15rem;">Все посетители</button>
+        </form>
+
+        <form action="{{ url_for('admin.all_practices_boys') }}">
+            <button class="body_btn" style="margin-left: 15rem;">Все посетители практикумов</button>
+        </form>
+
+        <form action="{{ url_for('admin.all_masters') }}">
+            <button class="body_btn" style="margin-left: 15rem;">Все главы</button>
+        </form>
+
+        <form action="{{ url_for('admin.all_customers') }}">
+            <button class="body_btn" style="margin-left: 15rem;">Все заказчики</button>
+        </form>
+
+        <form action="{{ url_for('admin.all_curators') }}">
+            <button class="body_btn" style="margin-left: 15rem;">Все кураторы</button>
+        </form>
+    </div>
+</body>
+</html>

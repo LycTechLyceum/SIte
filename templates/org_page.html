@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LycTech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="root">
+        <div class="header">
+            <a class="logo" href="/"><img src="static/images/logo.jpg"></a>
+            <a class="LS" href="{{ url_for('admin.admin_main_page') }}">Вы админ, поздравляю...</a>
+        </div>
+        <div class="practicum" style="height: auto;">
+                <p class="center-text">{{ organisation_info['name'] }}</p>
+                <p class="center-text">Аудитория: {{ organisation_info['audience'] }}</p>
+                <p class="center-text" style="margin-bottom: 5rem;">Дата регистрации: {{ organisation_info['date'] }}</p>
+                <p class="center-text" style="font-size: 2rem;">Заказчики:</p>
+                {% for customer in organisation_info['customers'] %}
+                    <p class="center-text">{{ customer['namme'] }}</p>
+                    <form action="{{ url_for('admin.user_page', id=customer['id']) }}">
+                        <button class="body_btn" style="margin-top: 1rem; margin-bottom: 2rem;">Заказчик</button>
+                    </form>
+                {% endfor %}
+                <p class="center-text" style="font-size: 2rem; margin-top: 5rem;">Проекты:</p>
+                {% for event in organisation_info['events'] %}
+                    <p class="center-text">{{ event['name'] }}</p>
+                    <form action="{{ url_for('admin.project_page', id=event['id']) }}">
+                        <button class="body_btn" style="margin-top: 1rem; margin-bottom: 2rem;">Проект</button>
+                    </form>
+                {% endfor %}
+           </div>
+        <hr class="under-main">
+    </div>
+</body>
+</html>

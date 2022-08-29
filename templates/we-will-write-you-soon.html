@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LycTech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="root">
+        <div class="header">
+            <a class="logo" href="/"><img src="static/images/logo.jpg"></a>
+            <a class="LS"><img src="static/images/user.png"></a>
+            <a class="LS">{{ user["initials"] }}</a>
+            <a class="LS" href="{{ url_for('main_pages.logout') }}">Выход</a>
+        </div>
+        <div class="second-header">
+            <a class="logo" href="/"></a>
+            <a class="LS" href="/">Главная</a>
+            <a class="LS" href="{{ url_for('main_pages.practicum') }}">Практикум</a>
+        </div>
+        <div class="main-login" style="width: 50rem; padding-top: 10rem; padding-bottom: 10rem; height: 27rem;">
+          <p class="login-text">Мы свяжемся с вами в ближейшее время!</p>
+        </div>
+    </div>
+    <div class="contacts">
+            <p>Телеграм: TimofeiSmirnov1</p>
+    </div>
+</body>
+</html>

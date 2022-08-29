@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LycTech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="root">
+        <div class="header">
+            <a class="logo" href="/"><img src="static/images/logo.jpg"></a>
+            <a class="LS" href="{{ url_for('admin.admin_main_page') }}">Вы админ, поздравляю...</a>
+        </div>
+        <div class="practicum" style="height: auto;">
+                <p class="center-text" style="font-size: 5rem; margin-bottom: 5rem;">{{ pos_info['name'] }}</p>
+                <p class="center-text" style="font-size: 4rem; margin-bottom: 2rem; margin-top: 4rem; color: gray;">Участники:</p>
+                {% for part in pos_info['participants'] %}
+                    <form action="{{ url_for('admin.user_page', id=part['id']) }}">
+                        <button class="body_btn" style="margin-bottom: 3rem; margin-top: 1rem;">{{ part['name'] }} {{ part['surname'] }}</button>
+                    </form>
+                {% endfor %}
+           </div>
+        <hr class="under-main">
+    </div>
+</body>
+</html>

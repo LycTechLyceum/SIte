@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LycTech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="root">
+        <div class="header">
+            <a class="logo" href="/"><img src="static/images/logo.jpg"></a>
+            <a class="LS" href="{{ url_for('admin.admin_main_page') }}">Вы админ, поздравляю...</a>
+        </div>
+        {% for curator in curators %}
+                <p style="margin-left: 15rem; font-size: 30px; margin-top: 2rem;">{{ curators[curator]["name"] }} {{ curators[curator]["grade"] }}</p>
+                <p style="font-size: 20px; color: gray; margin-left: 15rem; margin-top: 0.5rem;">{{ curators[curator]["position"] }}</p>
+        {% endfor %}
+        <hr class="under-main">
+    </div>
+</body>
+</html>

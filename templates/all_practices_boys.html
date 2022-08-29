@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LycTech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="root">
+        <div class="header">
+            <a class="logo" href="/"><img src="static/images/logo.jpg"></a>
+            <a class="LS" href="{{ url_for('admin.admin_main_page') }}">Вы админ, поздравляю...</a>
+        </div>
+        {% for practices_visitor in practices_boys %}
+                <div class="practicum" style="height: auto;">
+                    <p class="center-text">{{ practices_boys[practices_visitor]["name"] }} {{ practices_boys[practices_visitor]["surname"] }}</p>
+                    <p class="center-text" style="font-size: 2rem;">Практикумы:</p>
+                    {% for practice in practices_boys[practices_visitor]['practice'] %}
+                        <p class="center-text">{{ practice['name'] }}</p>
+                        <form action="{{ url_for('admin.practice_page', id=practice['id']) }}">
+                            <button class="body_btn" style="margin-top: 1rem; margin-bottom: 2rem;">Узнать больше</button>
+                        </form>
+                    {% endfor %}
+                </div>
+        {% endfor %}
+        <hr class="under-main">
+    </div>
+</body>
+</html>

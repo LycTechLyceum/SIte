@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LycTech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="root">
+        <div class="header">
+            <a class="logo" href="/"><img src="static/images/logo.jpg"></a>
+            <a class="LS" href="{{ url_for('admin.admin_main_page') }}">Вы админ, поздравляю...</a>
+        </div>
+        {% for user in users %}
+                <div class="practicum">
+                    <p class="center-text">{{ users[user]["name"] }} {{ users[user]["surname"] }}</p>
+                    <form action="{{ url_for('admin.user_page', id=user) }}">
+                        <button class="body_btn">Пользователь</button>
+                    </form>
+                </div>
+        {% endfor %}
+        <hr class="under-main">
+    </div>
+</body>
+</html>

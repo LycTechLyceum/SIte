@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LycTech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="root">
+        <div class="header">
+            <a class="logo" href="/"><img src="static/images/logo.jpg"></a>
+            <a class="LS"><img src="static/images/user.png"></a>
+            <a class="LS">{{ user["initials"] }}</a>
+            <a class="LS" href="{{ url_for('main_pages.logout') }}">Выход</a>
+        </div>
+        <div class="second-header">
+            <a class="logo" href="/"></a>
+            <a class="LS" href="/">Главная</a>
+            <a class="LS" href="{{ url_for('main_pages.project') }}">Проект</a>
+        </div>
+        {% for practicum in practices %}
+                <div class="practicum">
+                    <p class="center-text">{{ practices[practicum]["name"] }}</p>
+                    <p class="center-text" style="font-size: 20px; color: gray;">{{ practices[practicum]["date"] }}</p>
+                    <form action="{{ url_for('main_pages.reg_to_practicum') }}">
+                        <button class="body_btn">Вход</button>
+                    </form>
+                </div>
+        {% endfor %}
+        <hr class="under-main">
+    </div>
+</body>
+</html>

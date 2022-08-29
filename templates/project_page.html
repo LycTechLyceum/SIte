@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LycTech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="root">
+        <div class="header">
+            <a class="logo" href="/"><img src="static/images/logo.jpg"></a>
+            <a class="LS" href="{{ url_for('admin.admin_main_page') }}">Вы админ, поздравляю...</a>
+        </div>
+        <div class="practicum" style="height: auto;">
+                <p class="center-text">{{ project_info['name'] }}</p>
+                <p class="center-text" style="color: gray; font-size: 2rem;">{{ project_info['date'] }}</p>
+                <p class="center-text">Куратор: {{ project_info['curator']['name'] }}</p>
+                <p class="center-text">Заказчик: {{ project_info['customer']['name'] }}</p>
+                <p class="center-text">Организация: {{ project_info['organization']['name'] }}</p>
+                <form action="{{ url_for('admin.org_page', name=project_info['organization']['name']) }}">
+                        <button class="body_btn" style="margin-top: 5rem; margin-bottom: 10rem;">Страница организации</button>
+                </form>
+                <p class="center-text" style="font-size: 4rem; margin-bottom: 2rem;">Программисты</p>
+                {% for proger in project_info['progers'] %}
+                    <p class="center-text" style="margin-bottom: 1rem;">{{ proger['name'] }}</p>
+                {% endfor %}
+                <p class="center-text" style="font-size: 4rem; margin-bottom: 2rem;">Посетители</p>
+                {% for visitor in project_info['visitors'] %}
+                    <p class="center-text" style="margin-bottom: 1rem;">{{ visitor['name'] }}</p>
+                {% endfor %}
+           </div>
+        <hr class="under-main">
+    </div>
+</body>
+</html>
